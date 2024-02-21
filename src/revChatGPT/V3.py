@@ -34,6 +34,7 @@ ENGINES = [
     "gpt-4-32k-0314",
     "gpt-4-0613",
     "gpt-4-32k-0613",
+    "gpt-4-turbo-preview",
 ]
 
 
@@ -64,7 +65,9 @@ class Chatbot:
         self.api_key: str = api_key
         self.system_prompt: str = system_prompt
         self.max_tokens: int = max_tokens or (
-            31000
+            127000
+            if "gpt-4-turbo-preview" in engine
+            else 31000
             if "gpt-4-32k" in engine
             else 7000
             if "gpt-4" in engine
@@ -73,7 +76,9 @@ class Chatbot:
             else 4000
         )
         self.truncate_limit: int = truncate_limit or (
-            30500
+            126500
+            if "gpt-4-turbo-preview" in engine
+            else 30500
             if "gpt-4-32k" in engine
             else 6500
             if "gpt-4" in engine
