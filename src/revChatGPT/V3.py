@@ -65,7 +65,7 @@ class Chatbot:
         self.api_key: str = api_key
         self.system_prompt: str = system_prompt
         self.max_tokens: int = max_tokens or (
-            127000
+            4000
             if "gpt-4-turbo-preview" in engine
             else 31000
             if "gpt-4-32k" in engine
@@ -76,7 +76,7 @@ class Chatbot:
             else 4000
         )
         self.truncate_limit: int = truncate_limit or (
-            126500
+            3500
             if "gpt-4-turbo-preview" in engine
             else 30500
             if "gpt-4-32k" in engine
