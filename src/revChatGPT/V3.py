@@ -76,7 +76,7 @@ class Chatbot:
             else 4000
         )
         self.truncate_limit: int = truncate_limit or (
-            3500
+            127000
             if "gpt-4-turbo-preview" in engine
             else 30500
             if "gpt-4-32k" in engine
